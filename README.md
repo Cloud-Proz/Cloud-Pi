@@ -3,6 +3,9 @@
 ## user_tool_kit
 
 **Note:** All operations below require the `CLOUD_PROZ_API` for authentication and access to the Cloud-Pi services
+Once you have the API key, run this command in the terminal
+export CLOUD_PROZ_API='API-KEY'
+
 
 ### File Descriptions
 
