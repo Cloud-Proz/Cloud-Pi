@@ -40,22 +40,24 @@ def send_image_for_processing(image):
 def draw_bounding_box(image, response, img_width, img_height):
     
     for match in response.get('FaceMatches', []):
-        # Get the bounding box
-        box = match['Face']['BoundingBox']
-        # img_height, img_width, _ = image.shape
-        
-        # Calculate the coordinates
-        x1, y1, x2, y2 = (int(box['Left'] * img_width), 
-                          int(box['Top'] * img_height), 
-                          int((box['Left'] + box['Width']) * img_width), 
-                          int((box['Top'] + box['Height']) * img_height))
-
-        # Draw the rectangle
-        cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-
         # Put the label
         label = match['Face'].get('ExternalImageId', 'Unknown')
         cv2.putText(image, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
+
+    box = response.get['SearchFaces', []]
+    # Get the bounding box
+    #box = match['Face']['BoundingBox']
+    # img_height, img_width, _ = image.shape
+    
+    # Calculate the coordinates
+    x1, y1, x2, y2 = (int(box['Left'] * img_width), 
+                        int(box['Top'] * img_height), 
+                        int((box['Left'] + box['Width']) * img_width), 
+                        int((box['Top'] + box['Height']) * img_height))
+
+    # Draw the rectangle
+    cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
+
 
 
 def api(img_pipe, api_pipe):
