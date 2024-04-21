@@ -17,6 +17,8 @@ frame_height = 1200
 def generate_frames():
     picam2 = Picamera2()
     picam2.configure(picam2.create_preview_configuration(main={"size": (frame_width, frame_height)}))
+    config = picam2.create_preview_configuration({'format': 'RGB888', "size": (frame_width, frame_height)})
+    picam2.configure(config)
     picam2.start()
 
     while True:
