@@ -3,8 +3,13 @@ import os
 import sys
 from io import BytesIO
 import base64
+import json
 
-api_key = os.getenv('CLOUD_PROZ_API')
+#api_key = os.getenv('CLOUD_PROZ_API')
+f = open('config.json')
+data = json.load(f)
+#api_key = os.getenv('CLOUD_PROZ_API')
+api_key = data['CLOUD_PROZ_API']
 
 MIN_ARG_COUNT = 4
 

@@ -1,8 +1,12 @@
 import requests
 import os
 import sys
+import json
 
-api_key = os.getenv('CLOUD_PROZ_API')
+f = open('config.json')
+data = json.load(f)
+#api_key = os.getenv('CLOUD_PROZ_API')
+api_key = data['CLOUD_PROZ_API']
 
 if not api_key:
     print('API key not found')

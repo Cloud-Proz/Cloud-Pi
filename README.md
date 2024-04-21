@@ -3,8 +3,7 @@
 ## user_tool_kit
 
 **Note:** All operations below require the `CLOUD_PROZ_API` for authentication and access to the Cloud-Pi services
-Once you have the API key, run this command in the terminal
-export CLOUD_PROZ_API='API-KEY'
+Once you have the API key, add it to config.json file in both `user_tool_kit` and `raspberry-pi` directories
 
 
 ### File Descriptions
