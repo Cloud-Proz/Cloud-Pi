@@ -4,7 +4,12 @@ import base64
 import os
 import json
 
-api_key = os.getenv('CLOUD_PROZ_API')
+
+f = open('config.json')
+data = json.load(f)
+#api_key = os.getenv('CLOUD_PROZ_API')
+api_key = data['CLOUD_PROZ_API']
+collection = data['Collection']
 
 def api_key_check():
     if not api_key:
@@ -21,7 +26,7 @@ def send_image_for_processing(image):
 
     # Prepare the request payload
     payload = {
-        "collection_name": "collection1",
+        "collection_name": collection,
         "photo_byte": image
     }
 
@@ -34,7 +39,10 @@ def send_image_for_processing(image):
 
     # Send the request
     response = requests.post(url, headers=headers, json=payload)
-    return response.json()
+    try:
+        return response.json()
+    except:
+        return response.text
 
 
 def draw_bounding_box(image, response, img_width, img_height):
@@ -56,9 +64,9 @@ def draw_bounding_box(image, response, img_width, img_height):
         
     
         #box = response.get['SearchedFaceBoundingBox']
-        # Get the bounding box
-        #box = match['Face']['BoundingBox']
-        # img_height, img_width, _ = image.shape
+        #Get the bounding box
+        # box = match['Face']['BoundingBox']
+        # #img_height, img_width, _ = image.shape
         
         # # Calculate the coordinates
         # x1, y1, x2, y2 = (int(box['Left'] * img_width), 
