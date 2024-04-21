@@ -23,4 +23,14 @@ Once you have the API key, add it to config.json file in both `user_tool_kit` an
 - `main.py`: This file is operating the camera and stream the result via flask onto a webbrowser
 - `cloud_pi_lib.py`: This file contains pivotal functions for Cloud-Pi services
 
+## Newly flashed SSD card
+
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install -y python3-libcamera python3-kms++ libcap-dev
+sudo apt install -y python3-libcamera python3-kms++
+sudo apt install -y python3-prctl libatlas-base-dev ffmpeg libopenjp2-7 python3-pip
+
+```
 
