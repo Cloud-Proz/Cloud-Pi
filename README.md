@@ -29,8 +29,8 @@ Once you have the API key, add it to config.json file in both `user_tool_kit` an
 sudo apt update
 sudo apt upgrade
 sudo apt install -y python3-libcamera python3-kms++ libcap-dev
-sudo apt install -y python3-libcamera python3-kms++
 sudo apt install -y python3-prctl libatlas-base-dev ffmpeg libopenjp2-7 python3-pip
+pip install -r requirements.txt --break-system-packages
 
 ```
 
