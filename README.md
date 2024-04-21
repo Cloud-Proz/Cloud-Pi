@@ -25,6 +25,9 @@ Once you have the API key, add it to config.json file in both `user_tool_kit` an
 
 ## Newly flashed SSD card
 
+1. Clone this repo with `git clone https://github.com/Cloud-Proz/Cloud-Pi.git`
+2. Change directory into Cloud-Pi with `cd Cloud-Pi`
+3. Copy and paste the following commands:
 ```
 sudo apt update
 sudo apt upgrade
